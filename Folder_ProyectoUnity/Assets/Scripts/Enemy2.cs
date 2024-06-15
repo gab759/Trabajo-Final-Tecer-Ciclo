@@ -46,6 +46,6 @@ public class Enemy2 : MonoBehaviour
             }
         }
 
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 }
