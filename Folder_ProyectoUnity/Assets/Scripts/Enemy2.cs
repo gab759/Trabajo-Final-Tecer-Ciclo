@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy2 : MonoBehaviour
 {
@@ -47,5 +48,12 @@ public class Enemy2 : MonoBehaviour
         }
 
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Muralla"))
+        {
+            SceneManager.LoadScene("Lose");
+        }
     }
 }

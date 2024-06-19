@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class HerenciaTower : MonoBehaviour
 {
-    private float generationTime = 3f; 
-    private float timeElapsed = 0f; 
-    public BulletController bulletPrefab; 
-    private Transform positionEnemyReference; 
-    private Vector3 directionEnemy; 
+    protected float generationTime = 3f;
+    protected float timeElapsed = 0f;
+    [SerializeField] private BulletController bulletPrefab;
+    protected Transform positionEnemyReference;
+    protected Vector3 directionEnemy;
+    private MyQueue<Transform> enemiesInRange = new MyQueue<Transform>();
 
-    void Update()
+    protected virtual void Update()
     {
         if (positionEnemyReference != null)
         {
@@ -28,29 +29,40 @@ public class HerenciaTower : MonoBehaviour
         timeElapsed += Time.deltaTime;
     }
 
-    void OnTriggerEnter(Collider collider)
+    protected virtual void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.tag == "Enemy")
+        if (collider.CompareTag("Enemy"))
         {
             if (positionEnemyReference == null)
             {
-                positionEnemyReference = collider.gameObject.transform;
+                positionEnemyReference = collider.transform;
             }
         }
     }
 
-   /* private void OnTriggerExit(Collider collision)
+    protected virtual void OnTriggerExit(Collider collider)
     {
-        if (positionEnemyReference != null)
+        if (collider.CompareTag("Enemy"))
         {
-            try
+            if (positionEnemyReference == collider.transform)
             {
-                if (collision.gameObject.GetComponent<HerenciaEnemys>().index == positionEnemyReference.GetComponent<HerenciaEnemys>().index)
-                {
-                    this.positionEnemyReference = null;
-                }
+                positionEnemyReference = NextTarget();
             }
-            catch (System.NullReferenceException) { }
         }
-    }*/
+    }
+    protected virtual Transform NextTarget()
+    {
+        if (enemiesInRange.IsEmpty())
+        {
+            return null;
+        }
+
+        Transform nextEnemy = enemiesInRange.Dequeue();
+
+        while (nextEnemy == null && !enemiesInRange.IsEmpty())
+        {
+            nextEnemy = enemiesInRange.Dequeue();
+        }
+        return nextEnemy;
+    }
 }
