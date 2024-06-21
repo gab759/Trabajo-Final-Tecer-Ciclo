@@ -24,7 +24,14 @@ public class SceneGameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Lose");
     }
-
+    public void GoSettings()
+    {
+        SceneManager.LoadScene("Creditos");
+    }
+    public void Exit()
+    {
+        Debug.Log("Saliste del juego.");
+    }
     public void SettingsButoon()
     {
         Settings.SetActive(true);
