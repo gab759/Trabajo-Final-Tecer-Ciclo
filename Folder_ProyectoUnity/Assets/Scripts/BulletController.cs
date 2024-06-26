@@ -6,6 +6,7 @@ public class BulletController : MonoBehaviour
 {
     [Header("Movement Variable")]
     public float speed = 40;
+    [SerializeField] private int damage = 1;
 
     private Rigidbody _compRigidbody;
     private Vector3 referenceAngle;
@@ -22,7 +23,10 @@ public class BulletController : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
+    public int GetDamage()
+    {
+        return damage;
+    }
     private void Start()
     {
         _compRigidbody.velocity = referenceAngle * speed;
