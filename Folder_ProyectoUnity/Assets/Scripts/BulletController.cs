@@ -31,5 +31,7 @@ public class BulletController : MonoBehaviour
     public void SetAngleBullet(Vector3 directionBullet)
     {
         referenceAngle = directionBullet;
+        transform.rotation = Quaternion.LookRotation(directionBullet);
+
     }
 }
