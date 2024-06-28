@@ -14,6 +14,8 @@ public class HerenciaEnemy : MonoBehaviour
     protected Transform playerTransform;
     protected Rigidbody rb;
     protected Collider enemyCollider;
+    protected Vector3 vectorToMove;
+
     //protected AudioSource _audio;
 
     protected virtual void Awake()
@@ -24,12 +26,17 @@ public class HerenciaEnemy : MonoBehaviour
         currentHP = maxHP;
     }
 
-    protected virtual void Update()
+    public virtual void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        //transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.LookAt(vectorToMove, Vector3.zero);
+    }
+    void FixedUpdate()
+    {
+        rb.velocity = (vectorToMove - transform.position).normalized * speed;
     }
 
-    protected virtual void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Muralla"))
         {
@@ -46,7 +53,6 @@ public class HerenciaEnemy : MonoBehaviour
             }
         }
     }
-
     public void TakeDamage(int damage)
     {
         currentHP -= damage;
@@ -71,5 +77,13 @@ public class HerenciaEnemy : MonoBehaviour
     public int GetMaxHP()
     {
         return maxHP;
+    }
+    public void ChangeMovePosition(Vector3 destiny)
+    {
+        vectorToMove = destiny;
+    }
+    public void GoToNode(MyGrafo mygrafo)
+    {
+        mygrafo.SelectionPath(gameObject);
     }
 }

@@ -29,10 +29,28 @@ public class TowerArea : HerenciaTower
         }
     }
 
-    /*protected override void OnTriggerExit(Collider collider)
+    protected override void OnTriggerExit(Collider collider)
     {
-        base.OnTriggerExit(collider); 
-    }*/
+        base.OnTriggerExit(collider);
+
+        if (collider.CompareTag("Enemy"))
+        {
+            // Remove the enemy from the queue if it exits the trigger
+            MyQueue<Transform> tempQueue = new MyQueue<Transform>();
+
+            while (!enemiesInRange.IsEmpty())
+            {
+                Transform enemy = enemiesInRange.Dequeue();
+                if (enemy != null && enemy != collider.transform)
+                {
+                    tempQueue.Enqueue(enemy);
+                }
+            }
+
+            enemiesInRange = tempQueue;
+        }
+    }
+
 
     private void ShootAtEnemies()
     {

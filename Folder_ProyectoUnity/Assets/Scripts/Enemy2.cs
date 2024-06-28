@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Enemy2 : MonoBehaviour
+public class Enemy2 : HerenciaEnemy
 {
     [SerializeField] private float speed = 1f; 
     [SerializeField] private float dashMultiplier = 5f; 
@@ -23,7 +23,7 @@ public class Enemy2 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
         timeElapsed += Time.deltaTime;
 
@@ -49,11 +49,12 @@ public class Enemy2 : MonoBehaviour
 
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
-    void OnTriggerEnter(Collider other)
+    public override void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Muralla"))
-        {
-            SceneManager.LoadScene("Lose");
-        }
+        base.OnTriggerEnter(other);
+        //if (other.CompareTag("Muralla"))
+        //{
+        //    SceneManager.LoadScene("Lose");
+        //}
     }
 }

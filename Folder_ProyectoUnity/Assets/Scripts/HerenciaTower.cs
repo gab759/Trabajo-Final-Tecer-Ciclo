@@ -9,7 +9,7 @@ public class HerenciaTower : MonoBehaviour
     [SerializeField] private BulletController bulletPrefab;
     protected Transform positionEnemyReference;
     protected Vector3 directionEnemy;
-    private MyQueue<Transform> enemiesInRange = new MyQueue<Transform>();
+    [SerializeField] private MyQueue<Transform> enemiesInRange = new MyQueue<Transform>();
 
     protected virtual void Update()
     {

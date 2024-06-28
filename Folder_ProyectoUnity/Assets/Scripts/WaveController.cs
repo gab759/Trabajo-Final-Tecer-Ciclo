@@ -13,6 +13,8 @@ public class WaveController : MonoBehaviour
     private int enemyIndex;
     private float spawnTimer;
 
+    [SerializeField] MyGrafo Grafo; 
+
     void Start()
     {
         // Iniciar la primera oleada
@@ -35,6 +37,7 @@ public class WaveController : MonoBehaviour
             for (int i = 0; i < spawnPoints.Length; i++)
             {
                 GameObject enemyObject = Instantiate(enemyWavePrefabs[enemyIndex], spawnPoints[i].position, spawnPoints[i].rotation);
+                Grafo.SelectionPath(enemyObject);
                 //Enemy1 enemy = enemyObject.GetComponent<Enemy>();
                 enemyWaveList.AddNodeAtEnd(enemyObject);
             }
