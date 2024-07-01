@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 2928065123358055821}
   - component: {fileID: 617747774765378495}
   - component: {fileID: 4552786650880362187}
+  - component: {fileID: -2044650993885230994}
   m_Layer: 0
   m_Name: Tower1
   m_TagString: Untagged
@@ -291,6 +292,21 @@ MonoBehaviour:
     type: 3}
   enemiesInRange:
     length: 0
+--- !u!114 &-2044650993885230994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619610861633268981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac72ed9ad0063844a9c0b3e18969a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &6904648341134599388
 GameObject:
   m_ObjectHideFlags: 0

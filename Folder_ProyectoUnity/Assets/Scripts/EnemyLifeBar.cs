@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class EnemyLifeBar : MonoBehaviour
 {
     [SerializeField] private Image lifeBar;
-    private HerenciaEnemy enemyGoblin;
+    private HerenciaEnemy enemys;
 
     private void Start()
     {
-        enemyGoblin = GetComponentInParent<HerenciaEnemy>();
-        if (enemyGoblin == null)
+        enemys = GetComponentInParent<HerenciaEnemy>();
+        if (enemys == null)
         {
             Debug.Log("Estas loco no existe esto");
         }
@@ -21,7 +21,7 @@ public class EnemyLifeBar : MonoBehaviour
     {
         transform.forward = Camera.main.transform.forward;
 
-        if (enemyGoblin != null && lifeBar != null)
+        if (enemys != null && lifeBar != null)
         {
             UpdateLifeBar();
         }
@@ -29,7 +29,7 @@ public class EnemyLifeBar : MonoBehaviour
 
     void UpdateLifeBar()
     {
-        float fillAmount = (float)enemyGoblin.GetCurrentHP() / (float)enemyGoblin.GetMaxHP();
+        float fillAmount = (float)enemys.GetCurrentHP() / (float)enemys.GetMaxHP();
         lifeBar.fillAmount = fillAmount;
     }
 }

@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Enemy2 : HerenciaEnemy
 {
-    [SerializeField] private float speed = 1f; 
     [SerializeField] private float dashMultiplier = 5f; 
     private float dashDuration = 0.5f; 
-    private float dashCooldown = 1.5f; 
+    private float dashCooldown = 4f; 
 
     private float timeElapsed = 0f;
     private float dashTimeElapsed = 0f;

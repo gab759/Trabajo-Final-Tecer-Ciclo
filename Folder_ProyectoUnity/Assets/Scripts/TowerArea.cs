@@ -5,7 +5,7 @@ using UnityEngine;
 public class TowerArea : HerenciaTower
 {
     [SerializeField] private BulletController bulletPrefabOverride;
-    private MyQueue<Transform> enemiesInRange = new MyQueue<Transform>();
+    //private MyQueue<Transform> enemiesInRange = new MyQueue<Transform>();
 
     protected override void Update()
     {

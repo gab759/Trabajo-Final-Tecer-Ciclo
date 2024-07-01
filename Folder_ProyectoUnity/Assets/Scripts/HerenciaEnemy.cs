@@ -8,9 +8,9 @@ public class HerenciaEnemy : MonoBehaviour
 {
     public static Action enemyKilled;
 
-    [SerializeField] protected int maxHP = 100;
+    [SerializeField] protected int maxHP = 10;
     protected int currentHP;
-    protected float speed = 3f;
+    protected float speed = 1f;
     protected Transform playerTransform;
     protected Rigidbody rb;
     protected Collider enemyCollider;

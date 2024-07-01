@@ -5,13 +5,11 @@ using UnityEngine.UI;
 using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager _instancia;
 
     [SerializeField] private AudioMixer _compAudioMixer;
     [SerializeField] private Slider sliderMaster;
     [SerializeField] private Slider sliderMusic;
     [SerializeField] private Slider sliderSfx;
-
     public void SetVolumenMaster()
     {
         float volumen = sliderMaster.value;

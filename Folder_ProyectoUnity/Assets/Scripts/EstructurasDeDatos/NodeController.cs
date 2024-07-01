@@ -15,7 +15,6 @@ public class NodeController : MonoBehaviour
         this.positionz = positionY;
         transform.position = new Vector3(positionx,0.2f,positionz);
         this.nodeTag=nodeTag;
-
     }
     public void AddNodeAdjacent(NodeController nodo){
         allAdjacentesNodes.AddNodeAtStart(nodo);
