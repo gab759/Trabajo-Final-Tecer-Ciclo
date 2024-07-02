@@ -851,7 +851,6 @@ GameObject:
   - component: {fileID: 763917085}
   - component: {fileID: 763917088}
   - component: {fileID: 763917087}
-  - component: {fileID: 763917086}
   m_Layer: 5
   m_Name: Creditos
   m_TagString: Untagged
@@ -879,18 +878,6 @@ RectTransform:
   m_AnchoredPosition: {x: 39.767, y: 423.592}
   m_SizeDelta: {x: 1024.1, y: 212.85}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &763917086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763917084}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681890526fb31e24592c704d4b76b0de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &763917087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1198,7 +1185,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1750812313}
+      - m_Target: {fileID: 1302769781}
         m_TargetAssemblyTypeName: SceneGameManager, Assembly-CSharp
         m_MethodName: GoMenu
         m_Mode: 1
@@ -1871,6 +1858,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256955439}
   m_CullTransparentMesh: 1
+--- !u!1 &1302769780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1302769782}
+  - component: {fileID: 1302769781}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1302769781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302769780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e776e7c03a612884cbe54b1d01c21514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTurret: {fileID: 0}
+  turret1Prefab: {fileID: 0}
+  turret2Prefab: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!4 &1302769782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302769780}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 82.12, y: 0.5, z: -7.86}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1491379684
 GameObject:
   m_ObjectHideFlags: 0
@@ -2408,57 +2445,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707959023}
   m_CullTransparentMesh: 1
---- !u!1 &1750812312
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1750812314}
-  - component: {fileID: 1750812313}
-  m_Layer: 0
-  m_Name: UIManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1750812313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750812312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2371f1c524130394b8dc12f418b41f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Settings: {fileID: 0}
-  currentTurret: {fileID: 0}
-  turret1Prefab: {fileID: 0}
-  turret2Prefab: {fileID: 0}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!4 &1750812314
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750812312}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 546.0618, y: 258.63098, z: 100.22064}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1958429088
 GameObject:
   m_ObjectHideFlags: 0
@@ -3004,6 +2990,7 @@ GameObject:
   - component: {fileID: 2115948894}
   - component: {fileID: 2115948893}
   - component: {fileID: 2115948892}
+  - component: {fileID: 2115948896}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3104,6 +3091,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2115948896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115948891}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba704a4366fb0044a2345eeff973d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSettings: {fileID: 11400000, guid: 4ce33641f43c9044387f35a1d33e3e33, type: 2}
+  audioMixer: {fileID: 24100000, guid: 61c99529a248e64479745b1cd7e66f6c, type: 2}
+  masterSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3112,6 +3116,6 @@ SceneRoots:
   - {fileID: 1966974934}
   - {fileID: 2115948895}
   - {fileID: 2051364008}
-  - {fileID: 1750812314}
   - {fileID: 883558193}
   - {fileID: 1145513853}
+  - {fileID: 1302769782}

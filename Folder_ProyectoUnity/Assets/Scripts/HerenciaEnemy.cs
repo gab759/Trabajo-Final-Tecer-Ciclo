@@ -6,28 +6,24 @@ using System;
 
 public class HerenciaEnemy : MonoBehaviour
 {
-    public static Action enemyKilled;
-
     [SerializeField] protected int maxHP = 10;
     protected int currentHP;
-    protected float speed = 1.6f;
-    protected Transform playerTransform;
+    protected float speed = 2f;
     protected Rigidbody rb;
-    protected Collider enemyCollider;
     [SerializeField] protected Vector3 vectorToMove;
 
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        enemyCollider = GetComponent<Collider>();
-        //_audio = GetComponent<AudioSource>();
         currentHP = maxHP;
+        GameManager.Instance.AddEnemy(); 
     }
 
     public virtual void Update()
     {
         transform.LookAt(vectorToMove, Vector3.zero);
     }
+
     public virtual void FixedUpdate()
     {
         rb.velocity = (vectorToMove - transform.position).normalized * speed;
@@ -37,7 +33,8 @@ public class HerenciaEnemy : MonoBehaviour
     {
         if (other.CompareTag("Muralla"))
         {
-            SceneManager.LoadScene("Lose");
+            Destroy(gameObject);
+            GameManager.Instance.RemoveEnemy(); 
         }
 
         if (other.CompareTag("Bullet"))
@@ -50,6 +47,7 @@ public class HerenciaEnemy : MonoBehaviour
             }
         }
     }
+
     public void TakeDamage(int damage)
     {
         currentHP -= damage;
@@ -62,25 +60,15 @@ public class HerenciaEnemy : MonoBehaviour
 
     protected virtual void Kill()
     {
-        enemyKilled?.Invoke();
+        GameManager.Instance.RemoveEnemy(); 
         Destroy(gameObject);
     }
 
-    public int GetCurrentHP()
-    {
-        return currentHP;
-    }
+    public int GetCurrentHP() => currentHP;
+    public int GetMaxHP() => maxHP;
 
-    public int GetMaxHP()
-    {
-        return maxHP;
-    }
     public void ChangeMovePosition(Vector3 destiny)
     {
         vectorToMove = destiny;
-    }
-    public void GoToNode(Grafo mygrafo)
-    {
-        mygrafo.SelectionPath(gameObject);
     }
 }

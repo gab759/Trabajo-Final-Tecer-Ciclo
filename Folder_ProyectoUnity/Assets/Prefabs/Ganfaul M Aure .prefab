@@ -487,7 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb0ee860b076974b8e46f14235676fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 6
+  maxHP: 8
   vectorToMove: {x: 0, y: 0, z: 0}
   dashMultiplier: 5
 --- !u!136 &5136986648808962414

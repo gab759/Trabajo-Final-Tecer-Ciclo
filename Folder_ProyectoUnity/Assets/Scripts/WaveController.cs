@@ -38,7 +38,6 @@ public class WaveController : MonoBehaviour
             {
                 GameObject enemyObject = Instantiate(enemyWavePrefabs[enemyIndex], spawnPoints[i].position, spawnPoints[i].rotation);
                 Grafo.SelectionPath(enemyObject);
-                //Enemy1 enemy = enemyObject.GetComponent<Enemy>();
                 enemyWaveList.AddNodeAtEnd(enemyObject);
             }
             enemyIndex++;

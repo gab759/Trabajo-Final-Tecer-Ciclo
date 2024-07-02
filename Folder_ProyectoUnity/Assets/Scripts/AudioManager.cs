@@ -5,24 +5,61 @@ using UnityEngine.UI;
 using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
+    public AudioSettings audioSettings;
+    public AudioMixer audioMixer;
+    public Slider masterSlider;
+    public Slider musicSlider;
+    public Slider sfxSlider;
 
-    [SerializeField] private AudioMixer _compAudioMixer;
-    [SerializeField] private Slider sliderMaster;
-    [SerializeField] private Slider sliderMusic;
-    [SerializeField] private Slider sliderSfx;
-    public void SetVolumenMaster()
+    private void Start()
     {
-        float volumen = sliderMaster.value;
-        _compAudioMixer.SetFloat("Master", Mathf.Log10(volumen) * 20);
+        InitializeSliders();
+        LoadAudioSettings();
     }
-    public void SetVolumenMusic()
+
+    public void SetMasterVolume(float volume)
     {
-        float volumen = sliderMusic.value;
-        _compAudioMixer.SetFloat("Music", Mathf.Log10(volumen) * 20);
+        audioSettings.masterVolume = volume;
+        audioMixer.SetFloat("Master", Mathf.Log10(volume) * 20);
     }
-    public void SetVolumenSfx()
+
+    public void SetMusicVolume(float volume)
     {
-        float volumen = sliderSfx.value;
-        _compAudioMixer.SetFloat("SFX", Mathf.Log10(volumen) * 20);
+        audioSettings.musicVolume = volume;
+        audioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        audioSettings.sfxVolume = volume;
+        audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
+    }
+
+    private void LoadAudioSettings()
+    {
+        SetMasterVolume(audioSettings.masterVolume);
+        SetMusicVolume(audioSettings.musicVolume);
+        SetSFXVolume(audioSettings.sfxVolume);
+    }
+
+    private void InitializeSliders()
+    {
+        if (masterSlider != null)
+        {
+            masterSlider.value = audioSettings.masterVolume;
+            masterSlider.onValueChanged.AddListener(SetMasterVolume);
+        }
+
+        if (musicSlider != null)
+        {
+            musicSlider.value = audioSettings.musicVolume;
+            musicSlider.onValueChanged.AddListener(SetMusicVolume);
+        }
+
+        if (sfxSlider != null)
+        {
+            sfxSlider.value = audioSettings.sfxVolume;
+            sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+        }
     }
 }

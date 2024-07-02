@@ -259,6 +259,135 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &330099430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 330099432}
+  - component: {fileID: 330099431}
+  m_Layer: 0
+  m_Name: musicFondo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &330099431
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330099430}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -7554344526179341989, guid: 61c99529a248e64479745b1cd7e66f6c,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 383e339828fbd1e42a92bb71d8bb1903, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.536
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &330099432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330099430}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 546.0618, y: 258.63098, z: 100.22064}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,7 +607,7 @@ GameObject:
   - component: {fileID: 395191590}
   - component: {fileID: 395191591}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: MasterSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -550,13 +679,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1086456695}
   m_HandleRect: {fileID: 1928650509}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: 0.0001
+  m_MaxValue: 3
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1988324133}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: SetMasterVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +827,7 @@ GameObject:
   - component: {fileID: 412842147}
   - component: {fileID: 412842148}
   m_Layer: 5
-  m_Name: Slider (2)
+  m_Name: SfxSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -758,13 +899,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 418087009}
   m_HandleRect: {fileID: 1631891125}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: 0.0001
+  m_MaxValue: 3
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1988324133}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: SetSFXVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &418087008
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,7 +1010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &559829515
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2133,8 +2286,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1399359069}
-        m_TargetAssemblyTypeName: SceneGameManager, Assembly-CSharp
+      - m_Target: {fileID: 1399359072}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: CreateTurret1
         m_Mode: 1
         m_Arguments:
@@ -3223,13 +3376,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1399359069}
+      - m_Target: {fileID: 1399359072}
         m_TargetAssemblyTypeName: SceneGameManager, Assembly-CSharp
-        m_MethodName: SettingsButoon
-        m_Mode: 1
+        m_MethodName: SettingsButton
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1458384785}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3350,36 +3503,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1399359070}
-  - component: {fileID: 1399359069}
   - component: {fileID: 1399359071}
+  - component: {fileID: 1399359072}
   m_Layer: 0
-  m_Name: UIManager
+  m_Name: SceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1399359069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399359068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2371f1c524130394b8dc12f418b41f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Settings: {fileID: 1458384785}
-  currentTurret: {fileID: 0}
-  turret1Prefab: {fileID: 6619610861633268981, guid: b5e7400f9e3c23f4b97ce63ba0fe1045,
-    type: 3}
-  turret2Prefab: {fileID: 4240789492383589104, guid: 455e30a9ff2f74945852ed10d83d0a46,
-    type: 3}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!4 &1399359070
 Transform:
   m_ObjectHideFlags: 0
@@ -3409,12 +3541,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyWavePrefabs:
   - {fileID: 8886618835967550323, guid: 234e488366824ad41a8a82edb6589d8d, type: 3}
+  - {fileID: 8886618835967550323, guid: 234e488366824ad41a8a82edb6589d8d, type: 3}
+  - {fileID: 8886618835967550323, guid: 234e488366824ad41a8a82edb6589d8d, type: 3}
+  - {fileID: 8886618835967550323, guid: 234e488366824ad41a8a82edb6589d8d, type: 3}
   - {fileID: 556325442351096876, guid: 9d79ce96a972919478001e12c5225bb3, type: 3}
+  - {fileID: 1592885484552064100, guid: 605f722d7d5187445a2513192d6c1448, type: 3}
+  - {fileID: 1592885484552064100, guid: 605f722d7d5187445a2513192d6c1448, type: 3}
+  - {fileID: 556325442351096876, guid: 9d79ce96a972919478001e12c5225bb3, type: 3}
+  - {fileID: 1592885484552064100, guid: 605f722d7d5187445a2513192d6c1448, type: 3}
   - {fileID: 1592885484552064100, guid: 605f722d7d5187445a2513192d6c1448, type: 3}
   spawnPoints:
   - {fileID: 1399359070}
   spawnInterval: 4
   Grafo: {fileID: 1478504226}
+--- !u!114 &1399359072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399359068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e776e7c03a612884cbe54b1d01c21514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTurret: {fileID: 0}
+  turret1Prefab: {fileID: 6619610861633268981, guid: b5e7400f9e3c23f4b97ce63ba0fe1045,
+    type: 3}
+  turret2Prefab: {fileID: 4240789492383589104, guid: 455e30a9ff2f74945852ed10d83d0a46,
+    type: 3}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1001 &1428244932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3515,12 +3674,12 @@ RectTransform:
   m_Children:
   - {fileID: 672600298}
   - {fileID: 1191664914}
-  - {fileID: 395191590}
   - {fileID: 837419004}
   - {fileID: 1708552183}
   - {fileID: 1547109202}
-  - {fileID: 412842147}
+  - {fileID: 395191590}
   - {fileID: 1938426952}
+  - {fileID: 412842147}
   - {fileID: 2024305229}
   - {fileID: 1594798585}
   m_Father: {fileID: 1988324132}
@@ -4119,13 +4278,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1399359069}
+      - m_Target: {fileID: 1399359072}
         m_TargetAssemblyTypeName: SceneGameManager, Assembly-CSharp
         m_MethodName: Atras
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1458384785}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4945,8 +5104,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1399359069}
-        m_TargetAssemblyTypeName: SceneGameManager, Assembly-CSharp
+      - m_Target: {fileID: 1399359072}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: CreateTurret2
         m_Mode: 1
         m_Arguments:
@@ -5167,7 +5326,7 @@ GameObject:
   - component: {fileID: 1938426952}
   - component: {fileID: 1938426953}
   m_Layer: 5
-  m_Name: Slider (1)
+  m_Name: MusicSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5239,13 +5398,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1230729443}
   m_HandleRect: {fileID: 1200852872}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: 0.0001
+  m_MaxValue: 3
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1988324133}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: SetMusicVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1988324128
 GameObject:
   m_ObjectHideFlags: 0
@@ -5258,6 +5429,7 @@ GameObject:
   - component: {fileID: 1988324131}
   - component: {fileID: 1988324130}
   - component: {fileID: 1988324129}
+  - component: {fileID: 1988324133}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5353,6 +5525,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1988324133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988324128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba704a4366fb0044a2345eeff973d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSettings: {fileID: 11400000, guid: 4ce33641f43c9044387f35a1d33e3e33, type: 2}
+  audioMixer: {fileID: 24100000, guid: 61c99529a248e64479745b1cd7e66f6c, type: 2}
+  masterSlider: {fileID: 395191591}
+  musicSlider: {fileID: 1938426953}
+  sfxSlider: {fileID: 412842148}
 --- !u!1 &2014625965
 GameObject:
   m_ObjectHideFlags: 0
@@ -5524,7 +5713,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1399359069}
+      - m_Target: {fileID: 1399359072}
         m_TargetAssemblyTypeName: SceneGameManager, Assembly-CSharp
         m_MethodName: GoMenu
         m_Mode: 1
@@ -14304,6 +14493,7 @@ GameObject:
   - component: {fileID: 1572874613270731167}
   - component: {fileID: 2825634230375439502}
   - component: {fileID: 5413090461741197719}
+  - component: {fileID: 5413090461741197720}
   m_Layer: 0
   m_Name: Muralla
   m_TagString: Muralla
@@ -15802,6 +15992,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.08, y: 2.52, z: 1.0234686}
   m_Center: {x: 0.54, y: -0.00000035762793, z: 0.5052462}
+--- !u!114 &5413090461741197720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4715868597211606679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2104f5940a1629c49954add149a9f594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  healthText: {fileID: 1648852286}
 --- !u!23 &5446226942457819319
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17199,7 +17403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0537b956182c2724cb0a428f573689d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1399359069}
+  gameManager: {fileID: 1399359072}
 --- !u!1 &6144847110043334755
 GameObject:
   m_ObjectHideFlags: 0
@@ -21318,7 +21522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0537b956182c2724cb0a428f573689d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1399359069}
+  gameManager: {fileID: 1399359072}
 --- !u!114 &8485241431642401161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21331,7 +21535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0537b956182c2724cb0a428f573689d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1399359069}
+  gameManager: {fileID: 1399359072}
 --- !u!114 &8485241432055865169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21344,7 +21548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0537b956182c2724cb0a428f573689d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1399359069}
+  gameManager: {fileID: 1399359072}
 --- !u!114 &8485241432768813119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21357,7 +21561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0537b956182c2724cb0a428f573689d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1399359069}
+  gameManager: {fileID: 1399359072}
 --- !u!114 &8485241432853468343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21370,7 +21574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0537b956182c2724cb0a428f573689d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1399359069}
+  gameManager: {fileID: 1399359072}
 --- !u!114 &8485241432941504591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21383,7 +21587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0537b956182c2724cb0a428f573689d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1399359069}
+  gameManager: {fileID: 1399359072}
 --- !u!23 &8493050336543783384
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22881,3 +23085,4 @@ SceneRoots:
   - {fileID: 1399359070}
   - {fileID: 1478504227}
   - {fileID: 543450653039927163}
+  - {fileID: 330099432}
