@@ -13,7 +13,7 @@ public class WaveController : MonoBehaviour
     private int enemyIndex;
     private float spawnTimer;
 
-    [SerializeField] MyGrafo Grafo; 
+    [SerializeField] Grafo Grafo; 
 
     void Start()
     {

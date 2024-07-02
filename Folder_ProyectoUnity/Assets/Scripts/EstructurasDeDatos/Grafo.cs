@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MyGrafo : MonoBehaviour
+public class Grafo : MonoBehaviour
 {
     public SimplyLinkedList<NodeController> allNode;
     public GameObject nodePrefab;
@@ -16,9 +16,7 @@ public class MyGrafo : MonoBehaviour
         GenerateCamino();
     }
     void Start(){
-        GraphOne();
-        //currentNodeControl = allNode.GetNodeAtPosition(19);
-        //Enemy.ChangeMovePosition(currentNodeControl.gameObject.transform.position);
+        Graph();
     }
     void AddNode(float positionx, float positiony, int nodeTag)
     {
@@ -50,7 +48,7 @@ public class MyGrafo : MonoBehaviour
         }
         return allNode.GetNodeAtPosition(position);
     }
-    public void GraphOne()
+    public void Graph()
     {
         AddNodeAdjacent(0, new int[] { 1, 6, 7 });
         AddNodeAdjacent(1, new int[] { 2, 3 });
@@ -63,7 +61,17 @@ public class MyGrafo : MonoBehaviour
     public void SelectionPath(GameObject enemy)
     {
         currentNodeControl = allNode.GetNodeAtPosition(7);
-        enemy.GetComponent<HerenciaEnemy>().ChangeMovePosition(currentNodeControl.gameObject.transform.position);
+        if (enemy.GetComponent<HerenciaEnemy>())
+        {
+            enemy.GetComponent<HerenciaEnemy>().ChangeMovePosition(currentNodeControl.gameObject.transform.position);
+        }else if (enemy.GetComponent<Enemy2>())
+        {
+            enemy.GetComponent<Enemy2>().ChangeMovePosition(currentNodeControl.gameObject.transform.position);
+        } else if (enemy.GetComponent<Enemy2>())
+        {
+            enemy.GetComponent<Enemy3>().ChangeMovePosition(currentNodeControl.gameObject.transform.position);
+        }
+
     }
     void GenerateCamino()
     {

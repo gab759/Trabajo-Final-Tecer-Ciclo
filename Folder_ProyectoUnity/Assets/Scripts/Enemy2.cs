@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Enemy2 : HerenciaEnemy
 {
-    [SerializeField] private float dashMultiplier = 5f; 
-    private float dashDuration = 0.5f; 
-    private float dashCooldown = 4f; 
+    [SerializeField] private float dashMultiplier = 5f;
+    private float dashDuration = 0.5f;
+    private float dashCooldown = 4f;
 
     private float timeElapsed = 0f;
     private float dashTimeElapsed = 0f;
@@ -24,6 +23,7 @@ public class Enemy2 : HerenciaEnemy
     // Update is called once per frame
     public override void Update()
     {
+        base.Update();
         timeElapsed += Time.deltaTime;
 
         if (isDashing)
@@ -45,9 +45,17 @@ public class Enemy2 : HerenciaEnemy
                 timeElapsed = 0f;
             }
         }
-
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
+
+    public override void FixedUpdate()
+    {
+        // Update the velocity based on the current speed (which may be affected by dashing)
+        if (vectorToMove != Vector3.zero)
+        {
+            rb.velocity = (vectorToMove - transform.position).normalized * speed;
+        }
+    }
+
     public override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);

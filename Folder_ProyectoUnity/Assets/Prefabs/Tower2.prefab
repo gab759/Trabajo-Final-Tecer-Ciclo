@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2866022687843812401}
   - component: {fileID: 843170061978913005}
   m_Layer: 0
-  m_Name: Tower2 1
+  m_Name: Tower2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,12 +207,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e428eb6eaf143f45b08606c2b13bbe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2743060162170485910, guid: 6165b479899b8f943aabb0edf6e03375,
+  bulletPrefab: {fileID: 1416962754638836955, guid: 4937c59e5eb87244289f383c01da73e5,
     type: 3}
   enemiesInRange:
     length: 0
-  bulletPrefabOverride: {fileID: 1416962754638836955, guid: 4937c59e5eb87244289f383c01da73e5,
-    type: 3}
 --- !u!114 &843170061978913005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +226,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 72
+  canPlaceTurret: 1
 --- !u!1 &5327433846478910603
 GameObject:
   m_ObjectHideFlags: 0

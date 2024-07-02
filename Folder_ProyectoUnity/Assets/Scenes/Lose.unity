@@ -519,7 +519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 54, y: 145}
+  m_AnchoredPosition: {x: 93, y: 119}
   m_SizeDelta: {x: 1047.811, y: 280.692}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782216833
@@ -542,7 +542,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You Lose
+  m_text: 'Perdiste
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1ae90b1bdf1027c418e4739648ec03f4, type: 2}
   m_sharedMaterial: {fileID: 1777084175237332573, guid: 1ae90b1bdf1027c418e4739648ec03f4,
@@ -785,6 +787,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Settings: {fileID: 0}
+  currentTurret: {fileID: 0}
+  turret1Prefab: {fileID: 0}
+  turret2Prefab: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &1225820763
 Transform:
   m_ObjectHideFlags: 0

@@ -18,12 +18,12 @@ public class BaseTowerController : MonoBehaviour
     private void PlaceTurret()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        RaycastHit[] hits = Physics.RaycastAll(ray, Mathf.Infinity, LayerMask.GetMask("Base"));
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Base")))
+        if (hits.Length > 0)
         {
-            HerenciaTower baseTower = hit.collider.GetComponent<HerenciaTower>();
-            if (baseTower != null && !baseTower.HasTurret && gameManager.currentTurret != null)
+            RaycastHit hit = hits[0];
+            if (hit.collider != null && hit.collider.CompareTag("Base") && gameManager.currentTurret != null)
             {
                 Vector3 turretPosition = hit.collider.transform.position + new Vector3(0, 6.677f, 0);
                 Quaternion turretRotation = Quaternion.Euler(0f, 0f, 0f);
@@ -31,9 +31,7 @@ public class BaseTowerController : MonoBehaviour
                 newTurret = Instantiate(gameManager.currentTurret, turretPosition, turretRotation);
                 newTurret.GetComponent<TurretMovementController>().enabled = false;
                 newTurret.GetComponent<HerenciaTower>().enabled = true;
-
-                baseTower.HasTurret = true; //FALTA
-
+                hit.collider.enabled = false;
                 Destroy(gameManager.currentTurret);
                 gameManager.currentTurret = null;
             }

@@ -19,4 +19,5 @@ public class Enemy3 : HerenciaEnemy
         //transform.DOScale(scaleNew, 6f).SetDelay(4f).SetEase(scaleCurve);
         transform.DOScale(scaleNew, 2f).SetDelay(15f).SetEase(Ease.OutBack);
     }
+
 }

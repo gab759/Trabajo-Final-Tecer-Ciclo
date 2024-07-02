@@ -10,13 +10,11 @@ public class HerenciaEnemy : MonoBehaviour
 
     [SerializeField] protected int maxHP = 10;
     protected int currentHP;
-    protected float speed = 1f;
+    protected float speed = 1.6f;
     protected Transform playerTransform;
     protected Rigidbody rb;
     protected Collider enemyCollider;
-    protected Vector3 vectorToMove;
-
-    //protected AudioSource _audio;
+    [SerializeField] protected Vector3 vectorToMove;
 
     protected virtual void Awake()
     {
@@ -28,10 +26,9 @@ public class HerenciaEnemy : MonoBehaviour
 
     public virtual void Update()
     {
-        //transform.Translate(Vector3.forward * speed * Time.deltaTime);
         transform.LookAt(vectorToMove, Vector3.zero);
     }
-    void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         rb.velocity = (vectorToMove - transform.position).normalized * speed;
     }
@@ -82,7 +79,7 @@ public class HerenciaEnemy : MonoBehaviour
     {
         vectorToMove = destiny;
     }
-    public void GoToNode(MyGrafo mygrafo)
+    public void GoToNode(Grafo mygrafo)
     {
         mygrafo.SelectionPath(gameObject);
     }

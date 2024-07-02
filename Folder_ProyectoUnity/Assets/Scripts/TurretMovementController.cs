@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TurretMovementController : MonoBehaviour
 {
-    [SerializeField] private LayerMask groundLayer; 
+    [SerializeField] private LayerMask groundLayer;
+    public bool canPlaceTurret = true;
 
     void Update()
     {

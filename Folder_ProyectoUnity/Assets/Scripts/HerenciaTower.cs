@@ -6,12 +6,10 @@ public class HerenciaTower : MonoBehaviour
 {
     protected float generationTime = 3f;
     protected float timeElapsed = 0f;
-    [SerializeField] private BulletController bulletPrefab;
+    [SerializeField] protected BulletController bulletPrefab;
     protected Transform positionEnemyReference;
     protected Vector3 directionEnemy;
     [SerializeField] protected MyQueue<Transform> enemiesInRange = new MyQueue<Transform>();
-
-    public bool HasTurret  = false;
 
     protected virtual void Update()
     {
@@ -52,6 +50,7 @@ public class HerenciaTower : MonoBehaviour
             }
         }
     }
+
     protected virtual Transform NextTarget()
     {
         if (enemiesInRange.IsEmpty())

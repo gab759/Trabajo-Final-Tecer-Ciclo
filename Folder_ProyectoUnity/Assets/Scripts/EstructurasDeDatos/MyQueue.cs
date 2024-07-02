@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-[Serializable]
+
 public class MyQueue<T>
 {
     class Node
@@ -20,6 +20,7 @@ public class MyQueue<T>
     private Node Head;
     private Node Tail;
     public int length = 0;
+
     public void Enqueue(T value)
     {
         Node newNode = new Node(value);
@@ -27,23 +28,23 @@ public class MyQueue<T>
         {
             Head = newNode;
             Tail = newNode;
-            Head.Next = newNode;
-            length = length + 1;
+            length = 1;
         }
         else
         {
             newNode.Previous = Tail;
             Tail.Next = newNode;
             Tail = newNode;
-            length = length + 1;
+            length++;
         }
-        Debug.Log("Enqueued: " + Head.Value);
+        Debug.Log("Enqueued: " + newNode.Value);
     }
+
     public T Dequeue()
     {
         if (Head == null)
         {
-            Debug.LogError("Queue esta vacio");
+            Debug.LogError("Queue is empty");
             return default(T);
         }
 
@@ -63,6 +64,7 @@ public class MyQueue<T>
         Debug.Log("Dequeued: " + value);
         return value;
     }
+
     public bool IsEmpty()
     {
         return length == 0;
