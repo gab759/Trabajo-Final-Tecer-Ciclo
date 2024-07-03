@@ -24,6 +24,7 @@ public class HerenciaTower : MonoBehaviour
             {
                 Instantiate(bulletPrefab, transform.position, transform.rotation).SetAngleBullet(directionEnemy.normalized);
                 timeElapsed = 0;
+                GameManager.Instance.TriggerArrowShot();
             }
         }
         timeElapsed += Time.deltaTime;

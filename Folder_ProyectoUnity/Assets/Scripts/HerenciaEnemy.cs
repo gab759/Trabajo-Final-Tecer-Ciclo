@@ -10,6 +10,7 @@ public class HerenciaEnemy : MonoBehaviour
     protected int currentHP;
     protected float speed = 2f;
     protected Rigidbody rb;
+    [SerializeField] protected int coinValue = 10;
     [SerializeField] protected Vector3 vectorToMove;
 
     protected virtual void Awake()
@@ -61,6 +62,8 @@ public class HerenciaEnemy : MonoBehaviour
     protected virtual void Kill()
     {
         GameManager.Instance.RemoveEnemy(); 
+        GameManager.Instance.TriggerEnemyDeathCoinSound();
+        GameManager.Instance.TriggerEnemyDeath(coinValue);
         Destroy(gameObject);
     }
 

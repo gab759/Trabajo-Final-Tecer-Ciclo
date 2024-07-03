@@ -47,6 +47,7 @@ public class TowerArea : HerenciaTower
             {
                 Vector3 directionEnemy = enemy.position - transform.position;
                 Instantiate(bulletPrefab, transform.position, Quaternion.identity).SetAngleBullet(directionEnemy.normalized);
+                GameManager.Instance.TriggerArrowShot();
                 tempQueue.Enqueue(enemy);
             }
         }

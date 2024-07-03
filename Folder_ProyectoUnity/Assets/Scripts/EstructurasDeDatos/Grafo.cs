@@ -9,7 +9,6 @@ public class Grafo : MonoBehaviour
     GameObject currentNode;
     public NodeController currentNodeControl;
     [SerializeField] Transform parentRefences;
-    //public HerenciaEnemy Enemy;
 
     void Awake(){
         allNode =  new SimplyLinkedList<NodeController>();

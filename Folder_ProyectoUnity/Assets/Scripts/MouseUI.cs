@@ -14,8 +14,8 @@ public class MouseUI : MonoBehaviour
     private void Awake()
     {
         eventTrigger = gameObject.AddComponent<EventTrigger>();
-
     }
+
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -36,18 +36,27 @@ public class MouseUI : MonoBehaviour
 
     public void OnPointerEnter()
     {
-        rectTransform.DOScale(1.2f, 0.2f).SetEase(Ease.OutBack);
-        //GetComponent<Image>().DOColor(Color.red, 0.2f);
+        if (rectTransform != null)
+        {
+            rectTransform.DOScale(1.2f, 0.2f).SetEase(Ease.OutBack);
+        }
+        GameManager.Instance.TriggerButtonHover();
+
     }
 
     public void OnPointerExit()
     {
-        rectTransform.DOScale(1f, 0.2f).SetEase(Ease.OutBack);
-        //GetComponent<Image>().DOColor(Color.white, 0.8f);
+        if (rectTransform != null)
+        {
+            rectTransform.DOScale(1f, 0.2f).SetEase(Ease.OutBack);
+        }
     }
 
     private void OnButtonClick()
     {
-        rectTransform.DOPunchScale(Vector3.one * 0.1f, 0.3f, 10, 1);
+        if (rectTransform != null)
+        {
+            rectTransform.DOPunchScale(Vector3.one * 0.1f, 0.3f, 10, 1);
+        }
     }
 }

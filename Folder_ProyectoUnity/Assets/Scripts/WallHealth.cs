@@ -7,7 +7,7 @@ public class WallHealth : MonoBehaviour
 {
     public int maxHealth = 10;
     private int currentHealth;
-    public TextMeshProUGUI healthText; 
+    public TextMeshProUGUI healthText;
 
     private void Start()
     {
@@ -31,11 +31,12 @@ public class WallHealth : MonoBehaviour
             currentHealth = 0;
             GameManager.Instance.TriggerLose();
         }
+        GameManager.Instance.TriggerWallDamage();
         UpdateHealthUI();
     }
 
     private void UpdateHealthUI()
     {
-        healthText.text = "Vida: " + currentHealth;
+        healthText.text = "" + currentHealth;
     }
 }

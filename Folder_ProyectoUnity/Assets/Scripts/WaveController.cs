@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class WaveController : MonoBehaviour
 {
-    [SerializeField] private GameObject[] enemyWavePrefabs; 
+    [SerializeField] private GameObject[] enemyWavePrefabs;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private float spawnInterval = 3f;
 
-    private SimplyLinkedList<GameObject> enemyWaveList = new SimplyLinkedList<GameObject>();
+    private Queue<GameObject> enemyWaveQueue = new Queue<GameObject>();
     private int currentWave;
     private int enemyIndex;
     private float spawnTimer;
 
-    [SerializeField] Grafo Grafo; 
+    [SerializeField] Grafo Grafo;
 
     void Start()
     {
-        // Iniciar la primera oleada
         StartWave();
     }
 
@@ -38,7 +37,7 @@ public class WaveController : MonoBehaviour
             {
                 GameObject enemyObject = Instantiate(enemyWavePrefabs[enemyIndex], spawnPoints[i].position, spawnPoints[i].rotation);
                 Grafo.SelectionPath(enemyObject);
-                enemyWaveList.AddNodeAtEnd(enemyObject);
+                enemyWaveQueue.Enqueue(enemyObject); 
             }
             enemyIndex++;
         }
@@ -52,6 +51,5 @@ public class WaveController : MonoBehaviour
             spawnTimer = 0f;
             SpawnEnemy();
         }
-
     }
 }

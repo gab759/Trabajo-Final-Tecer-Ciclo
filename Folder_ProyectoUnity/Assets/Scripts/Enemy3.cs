@@ -8,16 +8,29 @@ public class Enemy3 : HerenciaEnemy
 {
     private Vector3 originalScale;
     private Vector3 scaleNew;
-    //[SerializeField] private AnimationCurve scaleCurve; //posiblemente lo quite
+    private bool hasScaled = false;
+    private float speedBoost = 0.3f;
 
     void Start()
     {
         originalScale = transform.localScale;
         scaleNew = originalScale * 1.5f;
-        //transform.DOMove(transform.position + Vector3.left * speed * 5, 5f);
-
-        //transform.DOScale(scaleNew, 6f).SetDelay(4f).SetEase(scaleCurve);
-        transform.DOScale(scaleNew, 2f).SetDelay(15f).SetEase(Ease.OutBack);
     }
 
+    public override void Update()
+    {
+        base.Update();  
+
+        if (currentHP < 10 && !hasScaled)  
+        {
+            IncreaseScaleAndSpeed();
+        }
+    }
+
+    private void IncreaseScaleAndSpeed()
+    {
+        transform.DOScale(scaleNew, 2f).SetEase(Ease.OutBack);  
+        speed += speedBoost;  
+        hasScaled = true;  
+    }
 }
