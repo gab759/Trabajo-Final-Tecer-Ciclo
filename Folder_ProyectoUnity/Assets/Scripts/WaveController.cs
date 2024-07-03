@@ -29,7 +29,7 @@ public class WaveController : MonoBehaviour
         SpawnEnemy();
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy() //O(n) de tiempo asintotico
     {
         if (enemyIndex < enemyWavePrefabs.Length)
         {

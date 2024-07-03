@@ -21,7 +21,7 @@ public class MyQueue<T>
     private Node Tail;
     public int length = 0;
 
-    public void Enqueue(T value)
+    public void Enqueue(T value) // O(1) de tiempo asintotico
     {
         Node newNode = new Node(value);
         if (Head == null)
@@ -40,7 +40,7 @@ public class MyQueue<T>
         Debug.Log("Enqueued: " + newNode.Value);
     }
 
-    public T Dequeue()
+    public T Dequeue() // O(1) de tiempo asintotico
     {
         if (Head == null)
         {

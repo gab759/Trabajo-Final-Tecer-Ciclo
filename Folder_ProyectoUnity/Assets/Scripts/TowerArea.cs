@@ -36,7 +36,7 @@ public class TowerArea : HerenciaTower
         }
     }
 
-    private void ShootAtEnemies()
+    private void ShootAtEnemies() //O(n) de tiempo asintotico
     {
         MyQueue<Transform> tempQueue = new MyQueue<Transform>();
 
@@ -55,7 +55,7 @@ public class TowerArea : HerenciaTower
         enemiesInRange = tempQueue;
     }
 
-    private void RemoveEnemyFromQueue(Transform enemyTransform)
+    private void RemoveEnemyFromQueue(Transform enemyTransform) //O(n) de tiempo asintotico
     {
         MyQueue<Transform> tempQueue = new MyQueue<Transform>();
 

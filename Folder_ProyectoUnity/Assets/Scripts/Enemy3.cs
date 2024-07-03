@@ -27,7 +27,7 @@ public class Enemy3 : HerenciaEnemy
         }
     }
 
-    private void IncreaseScaleAndSpeed()
+    private void IncreaseScaleAndSpeed() //O(1) de tiempo asintotico
     {
         transform.DOScale(scaleNew, 2f).SetEase(Ease.OutBack);  
         speed += speedBoost;  

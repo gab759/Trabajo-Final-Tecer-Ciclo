@@ -17,7 +17,7 @@ public class Grafo : MonoBehaviour
     void Start(){
         Graph();
     }
-    void AddNode(float positionx, float positiony, int nodeTag)
+    void AddNode(float positionx, float positiony, int nodeTag) //O(1) de tiempo asintotico
     {
         currentNode = Instantiate(nodePrefab, transform.position, transform.rotation,parentRefences);
         currentNode.transform.SetParent(transform);
@@ -57,7 +57,7 @@ public class Grafo : MonoBehaviour
         AddNodeAdjacent(6, new int[] { 4 });
         AddNodeAdjacent(7, new int[] { 4 });
     }
-    public void SelectionPath(GameObject enemy)
+    public void SelectionPath(GameObject enemy) //O(1) de tiempo asintotico
     {
         currentNodeControl = allNode.GetNodeAtPosition(7);
         if (enemy.GetComponent<HerenciaEnemy>())
